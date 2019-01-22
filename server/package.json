@@ -1,0 +1,21 @@
+{
+  "name": "cphdk-scraper",
+  "version": "1.0.0",
+  "description": "Abtion Developer Test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johannes Holger Greve",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonframe-cheerio": "^3.0.1",
+    "mongoose": "^5.4.4",
+    "node-fetch": "^2.3.0",
+    "underscore": "^1.9.1"
+  }
+}

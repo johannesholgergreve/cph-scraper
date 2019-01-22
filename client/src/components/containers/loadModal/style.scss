@@ -1,0 +1,43 @@
+@import '../../../styles/main.scss';
+
+.load-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color: $color-brand, $alpha: 0.9);
+  z-index: 1000;
+  opacity: 0;
+  transition: 300ms ease;
+  pointer-events: none;
+
+  &.is-shown {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  &__spinner {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+
+    svg {
+      width: 50%;
+      height: 50%;
+    }
+
+    &__sub-header {
+      padding-top: 25px;
+      color: $color-white;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}

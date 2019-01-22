@@ -1,0 +1,83 @@
+/**
+ * Media query mixin for better breakpoint alignment
+ *
+ * @param {String|Number} $point
+ * @param {Boolean} $max-width - False is mobile first (min-width) and true is desktop first (max-width)
+ * @param {String|Number} $top-point - Define a top point for the media query. So the media query includes both a min- and max-width value.
+ * @param {String} $others - Define other media query rules e.g. 'and (orientation: portrait)'.
+ *
+ *
+ * Examples of usage:
+ *
+ * @include media(md);
+ * Outputs: @media screen and (min-width: 768px) {}
+ *
+ * @include media(md, true, sm);
+ * Outputs: @media screen and (max-width: 767px) and (min-width: 480px) {}
+ *
+ * @inclued media(500, false, false, 'and (orientation: landscape)');
+ * Outputs: @media screen and (min-width: 500px) and (orientation: landscape) {}
+ *
+ *
+ * @section Framework
+ * @author dkvistgaard
+ */
+
+$current-bp: xs;
+$within-media: false;
+
+@mixin media($point, $max-width: false, $top-point: false, $others: '') {
+	$within-media: true !global;
+	$current-bp: $point !global;
+	$sizes: (
+		lg: $bp-desktop-large,
+		md: $bp-desktop,
+		sm: $bp-tablet,
+		xs: $bp-mobile
+	);
+
+	@if $point == print {
+		@media print {
+			@content;
+		}
+	} @else if $point == retina {
+		@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+			@content;
+		}
+	} @else if ($point == desktop) {
+		@each $desktop-bp in $grid-desktop-bps {
+			$current-bp: $desktop-bp !global;
+
+			@include media($desktop-bp) {
+				@content;
+			}
+		}
+	} @else {
+		$top-define: '';
+		$width-define: if($max-width, max-width, min-width);
+
+		@if ($top-point) {
+			$width-reverse: if($max-width, min-width, max-width);
+			$top-size: if(map-has-key($sizes, $top-point), map-get($sizes, $top-point), $top-point);
+
+			@if ($max-width == false) {
+				$top-size: $top-size - 1px;
+			}
+
+			$top-define: 'and (#{$width-reverse}: #{$top-size})';
+		}
+
+		$size: if(map-has-key($sizes, $point), map-get($sizes, $point), $point) + 0px;
+
+		@if ($max-width) {
+			$size: $size - 1px;
+		}
+
+		@media screen and #{'(' + $width-define + ': ' + $size + ') ' + unquote($top-define) + ' ' + $others} {
+			@content;
+		}
+	}
+
+	$current-bp: xs !global;
+	$within-media: false !global;
+}

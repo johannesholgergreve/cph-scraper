@@ -1,0 +1,12 @@
+<svg width="27px" height="13px" viewBox="0 0 27 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="iPad" transform="translate(-371.000000, -910.000000)" stroke="#FFFFFF">
+            <g id="Down-Arrow" transform="translate(372.000000, 910.000000)">
+                <g id="down-arrow">
+                    <path d="M0.304878049,0.304878049 L12.5152344,12.5152344" id="Line-2"></path>
+                    <path d="M24.695122,0.304878049 L12.4847656,12.5152344" id="Line-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

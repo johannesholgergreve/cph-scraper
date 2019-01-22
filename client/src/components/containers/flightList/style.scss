@@ -1,0 +1,43 @@
+@import '../../../styles/main.scss';
+
+.flight-list {
+  padding: 25px;
+  max-width: 1200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__controls {
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__buttons {
+      & > * {
+       margin-bottom: 15px;
+       width: 100%;
+      }
+    }
+  
+    @include media($bp-desktop) {
+      flex-direction: row;
+      padding: 25px 0;
+
+      &__buttons, &__search {
+        width: 50%;
+      }
+
+      &__buttons {
+        display: flex;
+        & > * {
+          margin-bottom: 0;
+          margin-left: 25px;
+        }
+      }
+    }
+  }
+}

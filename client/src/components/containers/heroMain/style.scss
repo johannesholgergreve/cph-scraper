@@ -1,0 +1,78 @@
+@import '../../../styles/main.scss';
+
+.main-hero {
+  width: 100vw;
+  height: 100vh;
+  background: $color-brand;
+  color: $color-white;
+  position: relative;
+  z-index: $zIndexMiddle;
+  transition: 1500ms ease;
+
+  &.flow-started {
+    margin-top: -100vh;
+  }
+
+  &__inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      @include media($bp-desktop) {
+        justify-content: center;
+      }
+  }
+
+  &__cta {
+    text-align: center;
+    padding-bottom: 24px;
+    @include media($bp-tablet) {
+      padding-bottom: 50px;
+    }
+  }
+  
+  &__texts {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    @include media($bp-desktop) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      height: auto;
+    }
+
+    &__heading {
+      padding-bottom: 50px;
+      min-height: 50px;
+    }
+
+    &__desc {
+      font-size: 18px;
+      line-height: 30px;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+      span {
+        font-weight: bold;
+      }
+    }
+    
+  }
+
+  .btn {
+    width: 175px;
+  }
+
+  svg {
+    padding-bottom: 48px;
+    animation: bounce 2s infinite;
+  }
+ 
+
+}

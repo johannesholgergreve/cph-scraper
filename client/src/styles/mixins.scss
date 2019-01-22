@@ -1,0 +1,33 @@
+@import './animations.scss';
+@import './media-queries.scss';
+
+@mixin background-cover-image {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+@mixin absolute-cover-img {
+	width: 80%;
+	height: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: contain;
+	mix-blend-mode: multiply;
+}
+
+@mixin square {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+        padding: 100% 0 0;
+	}
+
+	img {
+		@include absolute-cover-img;
+	}
+}

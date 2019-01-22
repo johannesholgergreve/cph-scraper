@@ -1,0 +1,36 @@
+@import '../../../styles/main.scss';
+
+.btn {
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 250px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 24px;
+  color: $color-white;
+  border: 1px solid $color-white;
+  transition: 300ms ease;
+
+  &.btn--secondary {
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .1);
+      }
+
+      &.active {
+        background: $color-white;
+        color: $color-brand;
+      }
+  }
+
+  &.btn--sticky {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+  }
+}
